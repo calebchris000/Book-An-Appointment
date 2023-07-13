@@ -8,9 +8,9 @@ import Header from './components/Header';
 function App() {
   return (
     <Router>
-      <div>
+  
         <div><Header /></div>
-        <div>
+
           <Routes>
  
             <Route exact path="/cars" element={<Cars />} />
@@ -18,8 +18,8 @@ function App() {
             <Route exact path="/deleteCar" element={<DeleteCar />} />
             
           </Routes>
-        </div>
-      </div>
+  
+ 
     </Router>
   );
 }
