@@ -5,9 +5,9 @@ import "./Navbar.css";
 import { useEffect } from "react";
 const Navbar = () => {
   useEffect(() => {
-    const listener = window.addEventListener("resize", () => {
+     window.addEventListener("resize", () => {
       const navbar = document.getElementsByClassName("container")[0];
-      if (window.innerWidth > 560) {
+      if (window.innerWidth > 768) {
         navbar.style.display = "block";
       }
     });
