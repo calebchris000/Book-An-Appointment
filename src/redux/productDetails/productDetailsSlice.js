@@ -33,12 +33,12 @@ export const productDetailsSlice = createSlice({
           newProducts.push({
             id: element.id,
             name: element.name,
-            image: element.price,
-            description: element.change,
-            model: element.dayLow,
-            engine: element.dayHigh,
-            price: element.yearLow,
-            mileage: element.yearHigh,
+            image: element.image,
+            description: element.description,
+            model: element.model,
+            engine: element.engine,
+            price: element.price,
+            mileage: element.mileage,
             })
         ));
         return ({
