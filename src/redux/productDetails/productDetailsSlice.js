@@ -1,15 +1,14 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
-  productDetails: [],
+  Products: [],
   isLoading: false,
 };
 
-export const fetchProductDetails = createAsyncThunk('productDetails/fetchProductDetails', async () => {
+export const fetchProductDetails = createAsyncThunk("Products/fetchProductDetails", async () => {
   try {
-    const response = await axios.get('http://127.0.0.1:3001/api/products');
+    const response = await axios.get("http://127.0.0.1:3001/api/products");
     return response.data;
   } catch (error) {
     return error.message;
@@ -17,7 +16,7 @@ export const fetchProductDetails = createAsyncThunk('productDetails/fetchProduct
 });
 
 export const productDetailsSlice = createSlice({
-  name: 'productDetails',
+  name: "Products",
   initialState,
 
   extraReducers: (builder) => {
@@ -26,26 +25,13 @@ export const productDetailsSlice = createSlice({
         ...state,
         isLoading: true,
       }))
-      .addCase(fetchProductDetails.fulfilled, (state, action) => {
-        const newProducts = [];
-        console.log(action.payload);
-        action.payload.map((element) => (
-          newProducts.push({
-            id: element.id,
-            name: element.name,
-            image: element.image,
-            description: element.description,
-            model: element.model,
-            engine: element.engine,
-            price: element.price,
-            mileage: element.mileage,
-            })
-        ));
-        return ({
+      .addCase(fetchProductDetails.fulfilled, (state, { payload }) => {
+        console.log(payload);
+        return {
           ...state,
           isLoading: false,
-          productDetails: newProducts,
-          });
+          Products: payload,
+        };
       })
       .addCase(fetchProductDetails.rejected, (state) => ({
         ...state,
