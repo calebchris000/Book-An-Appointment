@@ -1,10 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
-import productDetailsReducer from './productDetails/productDetailsSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import productDetailsReducer from "./productDetails/productDetailsSlice";
+import thunk from "redux-thunk";
 
 const store = configureStore({
   reducer: {
-        productDetails: productDetailsReducer,
+    productDetails: productDetailsReducer,
   },
+  middleware: [thunk],
 });
 
 export default store;

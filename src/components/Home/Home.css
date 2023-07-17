@@ -51,15 +51,17 @@
     display: none;
   }
 
-.vespa_container {
+.vehicle-holder {
   display: flex;
   /* border: 2px dashed; */
   width: 16rem;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
 }
 
-.vespa-circle {
+
+.vehicle-circle {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
@@ -71,9 +73,14 @@
   background-color: #a7bfd9;
 }
 
-.vespas {
-  width: calc(100% + 12rem);
-  transform: scaleX(-1);
+.vehicle {
+  width: calc(100% + 8rem);
+  transition: transform 0.3s ease;
+}
+
+
+.vehicle:hover {
+  transform: scale(1.03);
 }
 
 .vehicle-model {
