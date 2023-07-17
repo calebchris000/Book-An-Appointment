@@ -45,7 +45,7 @@ export default function ProductDetails() {
           <li>
             <div>Name </div>
             <div>
-              {element.image}
+              <img src = "{element.image}"/>
               {' '}
             </div>
           </li>
