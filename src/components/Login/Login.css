@@ -1,7 +1,8 @@
-/* Login component style */
 
 .page-heading {
   text-align: center;
+  margin-top: 20px;
+  font-size:   x-large;
 }
 
 .login-form {
@@ -18,7 +19,8 @@ input {
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
+  height: 40px;
 }
 
 button {
@@ -28,20 +30,9 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 130px;
 }
 
 button:hover {
   background-color: #3e8e41;
-}
-
-@media (max-width: 600px) {
-  /* Adjust layout for smaller screens */
-  .login-form {
-    margin-top: 20px;
-    max-width: 300px;
-  }
-
-  input {
-    max-width: 250px;
-  }
 }
