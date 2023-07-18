@@ -1,22 +1,23 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchProductDetails } from '../../redux/productDetails/productDetailsSlice';
+import { fetchProductDescription } from '../../redux/productDescription/productDescriptionSlice';
+import Loader from '../Loader/Loader';
 
-export default function ProductDetails() {
+export default function ProductDescription() {
   const dispatch = useDispatch();
 
   const { id } = useParams();
 
-  const {productDetails, isLoading} = useSelector((store) => store.productDetails);
+  const {productDescription, isLoading} = useSelector((store) => store.productDescription);
 
   useEffect(() => {
-    dispatch(fetchProductDetails());
+    dispatch(fetchProductDescription(id));
   }, [dispatch]);
 
   if (isLoading) {
     return (
-      <h3>Loading...</h3>
+      <h3><Loader/></h3>
     );}
 //    if (isError) {
 //     return (
@@ -31,7 +32,7 @@ export default function ProductDetails() {
       </h3>
       </div>
 
-      {productDetails.map((element) => (
+      {productDescription.map((element) => (
 
         <div key={element.id} className=" container-md display-flex justify-content-center">
             <div className='display-flex justify-content-center'>
