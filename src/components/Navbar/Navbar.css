@@ -15,18 +15,17 @@
 }
 
 .container-nav {
-    border: 1px solid #dbdbdb;
-    background-color: #fefefe;
-    float: left;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: 3;
-    width: 14rem;
+  border: 1px solid #dbdbdb;
+  background-color: #fefefe;
+  float: left;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 14rem;
 }
 
 .navbar {
-  height: 100vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -48,17 +47,22 @@
 
 .links {
   list-style-type: none;
-  /* border: 2px solid black; */
   padding: 1rem 1rem;
   color: black;
   font-weight: 700;
   text-decoration: none;
   margin-left: 0.3rem;
+  width: calc(100% - 0.3rem);
+  transition: color 0.2s ease-in-out;
 }
 
+.selected {
+  background-color: #6fb900 !important;
+  color: white !important;
+}
 .links:hover {
-  background-color: rgb(111, 185, 0);
-  color: white;
+  background-color: #c0ff62 !important;
+  color: black !important;
 }
 
 @media (max-width: 768px) {
