@@ -8,6 +8,7 @@ h2 {
 }
 
 .w-full {
+  margin-left: 20px;
   width: 100%;
 }
 
@@ -16,7 +17,7 @@ h2 {
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-image: url(../../assets/add-car.webp);
+  background-image: url(../../assets/addcar.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -35,6 +36,7 @@ h2 {
   width: 50%;
   background-color: #fff;
   margin-top: 100px;
+  margin-left: 10px;
   height: max-content;
   box-shadow: -1px 4px 5px 0 rgba(42, 43, 42, 0.64);
   -webkit-box-shadow: -1px 4px 5px 0 rgba(25, 26, 25, 0.64);
@@ -57,22 +59,3 @@ form button {
   float: right;
 }
 
-form label {
-  background-color: #fff;
-  width: 100%;
-}
-
-.year {
-  display: flex;
-  align-items: center;
-}
-
-@media only screen and (max-width: 768px) {
-  .add-car-form {
-    width: 92%;
-  }
-
-  .form-container {
-    height: 90vh;
-  }
-}

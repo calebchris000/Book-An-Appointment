@@ -1,4 +1,5 @@
 import React from 'react';
+import './Addcars.css';
 
 const AddCar = () => (
   <div className="form-container">
@@ -10,7 +11,6 @@ const AddCar = () => (
           name="name"
           placeholder="Enter Car name"
           autoComplete="off"
-          className="form-control w-full"
           required
         />
       </div>
@@ -18,7 +18,6 @@ const AddCar = () => (
         <input
           type="text"
           name="description"
-          className="w-full form-control"
           placeholder="Description"
           required
         />
@@ -28,7 +27,6 @@ const AddCar = () => (
           type="text"
           placeholder="Model"
           name="model"
-          className="form-control"
           required
         />
       </div>
@@ -37,21 +35,19 @@ const AddCar = () => (
           type="number"
           placeholder="Price per day"
           name="price"
-          className="form-control"
           required
         />
       </div>
-      <div className="input-group mb-3">
+      <div className="w-full">
         <input
           type="text"
           placeholder="Image URL"
           name="image"
-          className="form-control"
           id="basic-url"
           aria-describedby="basic-addon3"
         />
       </div>
-      <button type="submit" className="btn btn-primary mb-3">Add Car</button>
+      <button type="submit">Add Car</button>
     </form>
   </div>
 );
