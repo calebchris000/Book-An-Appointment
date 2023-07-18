@@ -3,6 +3,7 @@ import "./Home.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductDetails } from "../../redux/productDetails/productDetailsSlice";
 import Loader from "../Loader/Loader";
+import { useNavigate } from 'react-router-dom';
 const Vehicle = ({ model, description, image }) => {
   return (
     <>
@@ -18,6 +19,7 @@ const Vehicle = ({ model, description, image }) => {
 };
 
 const Home = () => {
+  const navigate = useNavigate();
   const { isLoading, Products } = useSelector((store) => store.productDetails);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -36,9 +38,11 @@ const Home = () => {
       <div className="hero">
         <h1 className="hero_header">LATEST MODELS</h1>
         <p className="hero_text">Please select a Model</p>
-        <div className="vehicle-container">
+        <div className="vehicle-container" >
           {Products.map((car) => (
+            <li onClick={() => navigate(`cars/${car.id}`)}>
             <Vehicle key={car.id} model={car.model} description={car.description} image={car.image} />
+            </li>
           ))}
         </div>
       </div>
