@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const Navbar = () => {
   useEffect(() => {
      window.addEventListener("resize", () => {
-      const navbar = document.getElementsByClassName("container")[0];
+      const navbar = document.getElementsByClassName("container-nav")[0];
       if (window.innerWidth > 768) {
         navbar.style.display = "block";
       }
@@ -14,7 +14,7 @@ const Navbar = () => {
   }, []);
 
   function handleToggle() {
-    const navbar = document.getElementsByClassName("container")[0];
+    const navbar = document.getElementsByClassName("container-nav")[0];
     navbar.style.display === "block" ? (navbar.style.display = "none") : (navbar.style.display = "block");
   }
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="hamburger-container">
         <GiHamburgerMenu className="hamburger" onClick={handleToggle} />
       </div>
-      <div className="container">
+      <div className="container-nav">
         <div className="img_container">
           <img className="logo" src={Logo} alt="" />
         </div>

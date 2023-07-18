@@ -14,7 +14,7 @@
   display: none;
 }
 
-.container {
+.container-nav {
     border: 1px solid #dbdbdb;
     background-color: #fefefe;
     float: left;
@@ -62,7 +62,7 @@
 }
 
 @media (max-width: 768px) {
-  .container  {
+  .container-nav {
     display: none;
   }
   .hamburger {

@@ -24,92 +24,67 @@ export default function ProductDetails() {
 //     );
 //   }
   return (
-    <div>
+<>
+    <div className='heading text-center'>
       <h3>
-        {id}
-        {' '}
-        Product Details
+       Product Details {id}
       </h3>
+      </div>
 
       {productDetails.map((element) => (
 
-        <div key={element.id} className="stock-details">
-
+        <div key={element.id} className=" container-md display-flex justify-content-center">
+            <div className='display-flex justify-content-center'>
+        <img src = {element.image}/>
+              </div>
+              <div className='container-car-details'>
           <li>
-            <div>Symbol </div>
+            <div>Brand Name</div>
             <div>
               {element.name}
-              {' '}
             </div>
           </li>
           <li>
-            <div>Name </div>
-            <div>
-              <img src = "{element.image}"/>
-              {' '}
-            </div>
+            
           </li>
           <li>
-            {' '}
-            <div>Price</div>
-            {' '}
-            <div>
+            <div>Description</div>
+                       <div>
               {element.description}
-              {' '}
+             
             </div>
           </li>
           <li>
-            <div>Changes Percentage </div>
-            <div>
-              {element.mileage}
-              {' '}
-            </div>
-          </li>
-          <li>
-            <div>Change </div>
+            <div>Model </div>
             <div>
               {element.model}
-              {' '}
+             
             </div>
           </li>
           <li>
-            <div>Volume </div>
-            <div>
-              {element.price}
-              {' '}
-            </div>
-          </li>
-          <li>
-            <div>Day Low </div>
+            <div>Engine </div>
             <div>
               {element.engine}
-              {' '}
+             
             </div>
           </li>
           <li>
-            <div> Day High </div>
+            <div>Mileage</div>
             <div>
-              {element.engine}
-              {' '}
+              {element.mileage}
+            
             </div>
           </li>
           <li>
-            <div>Year Low </div>
-            <div>
-              {element.price}
-              {' '}
-            </div>
-          </li>
-          <li>
-            <div>Year High </div>
+            <div>Price </div>
             <div>
               {element.price}
-              {' '}
+             
             </div>
           </li>
-
+          </div>
         </div>
       ))}
-    </div>
+    </>
   );
 }
