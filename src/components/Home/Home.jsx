@@ -40,9 +40,9 @@ const Home = () => {
         <p className="hero_text">Please select a Model</p>
         <div className="vehicle-container" >
           {Products.map((car) => (
-            <li onClick={() => navigate(`cars/${car.id}`)}>
+            <div onClick={() => navigate(`cars/${car.id}`)}>
             <Vehicle key={car.id} model={car.model} description={car.description} image={car.image} />
-            </li>
+            </div>
           ))}
         </div>
       </div>

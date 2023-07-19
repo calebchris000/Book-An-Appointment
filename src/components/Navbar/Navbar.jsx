@@ -5,13 +5,24 @@ import "./Navbar.css";
 import { useEffect } from "react";
 const Navbar = () => {
   useEffect(() => {
-     window.addEventListener("resize", () => {
+    window.addEventListener("resize", () => {
       const navbar = document.getElementsByClassName("container-nav")[0];
       if (window.innerWidth > 768) {
         navbar.style.display = "block";
       }
     });
   }, []);
+
+  function handleClick(e) {
+    document.querySelectorAll(".links").forEach((item) => {
+      item.style.backgroundColor = "white";
+      item.style.color = "black";
+      item.classList.remove("selected");
+    });
+    // e.target.style.backgroundColor = "#6fb900";
+    // e.target.style.color = "#fff";
+    e.target.classList.add("selected");
+  }
 
   function handleToggle() {
     const navbar = document.getElementsByClassName("container-nav")[0];
@@ -27,19 +38,19 @@ const Navbar = () => {
           <img className="logo" src={Logo} alt="" />
         </div>
         <nav className="navbar">
-          <Link className="links" to={"/"}>
+          <Link className="links selected" to={"/"} onClick={handleClick}>
             HOME
           </Link>
-          <Link className="links" to={"/new_reservations"}>
+          <Link className="links" to={"/new_reservations"} onClick={handleClick}>
             RESERVE
           </Link>
-          <Link className="links" to={"/reservedCars"}>
+          <Link className="links" to={"/reservedCars"} onClick={handleClick}>
             MY RESERVATIONS
           </Link>
-          <Link className="links" to={"/addcars"}>
+          <Link className="links" to={"/addcars"} onClick={handleClick}>
             ADD MOTORCYCLE
           </Link>
-          <Link className="links" to={"/deleteCar"}>
+          <Link className="links" to={"/deleteCar"} onClick={handleClick}>
             DELETE
           </Link>
         </nav>

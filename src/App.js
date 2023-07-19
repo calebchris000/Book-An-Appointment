@@ -6,7 +6,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login/Login";
 import Reservation from "./components/Reservation";
 import ReservedCars from "./components/ReservedCars";
-import ProductDescription from "./components/Home/productDescription";
+import ProductDescription from "./components/Description/ProductDescription";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
