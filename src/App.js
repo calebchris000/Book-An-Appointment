@@ -10,6 +10,9 @@ import ProductDescription from "./components/Home/productDescription";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import LoginForm from "./components/Login/Login";
+import SignupForm from "./components/Signup";
+
 
 
 function App() {
@@ -17,11 +20,10 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route exact path="/cars" element={<ProductDescription />} />
         <Route exact path="/addcars" element={<AddCar />} />
         <Route exact path="/deleteCar" element={<DeleteCar />} />
-        <Route exact path="/signup" element={<Signup />} />
-        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/signup" element={<SignupForm />} />
+        <Route exact path="/login" element={<LoginForm />} />
         <Route exact path="/new_reservations" element={<Reservation />} />
         <Route exact path="/reservedCars" element={<ReservedCars />} />
         <Route exact path="cars/:id" element={<ProductDescription />} />
