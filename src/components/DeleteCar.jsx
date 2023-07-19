@@ -1,7 +1,6 @@
 import React from 'react';
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteCar } from '../store/deleteCarSlice';
+import { deleteCar } from '../redux/deleteCarSlice';
 
 const DeleteCar = () => {
   const cars = useSelector((state) => state.deleteCar.cars);
