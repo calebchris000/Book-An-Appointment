@@ -1,49 +1,43 @@
 import React, { useState } from 'react';
-import './Login.css';
+import { useDispatch } from 'react-redux';
+import { signupUser } from '../../redux/signup/signupSlice';
 
-const Login = () => {
-  const [user, setUser] = useState({
-    email: '',
-    password: '',
-  });
+const LoginForm = () => {
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setUser((prevUser) => ({ ...prevUser, [name]: value }));
-  };
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+    const userData = {
+      email,
+      password,
+    };
+    const requestOptions = {
+      sign_in: true,
+      endPoints: "users/sign_in",
+      method: {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({user: userData})
+    }};
+    dispatch(signupUser(requestOptions));
   };
 
   return (
-    <div>
-      <h3 className="page-heading">Log in</h3>
-      <form onSubmit={handleSubmit} className="login-form">
-        <input
-          id="email"
-          placeholder="Email"
-          type="email"
-          name="email"
-          value={user.email}
-          onChange={handleChange}
-          required
-        />
-
-        <input
-          id="password"
-          placeholder="Password"
-          type="password"
-          name="password"
-          value={user.password}
-          onChange={handleChange}
-          required
-        />
-
-        <button type="submit">Log In</button>
-      </form>
-    </div>
+    <form onSubmit={handleLogin}>
+      <div>
+        <label>Email:</label>
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
   );
 };
 
-export default Login;
+export default LoginForm;
