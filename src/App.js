@@ -1,4 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import Cars from "./components/Cars";
+import AddCar from "./components/Addcars/AddCars";
+
 import DeleteCar from "./components/DeleteCar";
 import ReservationForm from "./components/ReservationForm";
 import ReservedCars from "./components/ReservedCars";
