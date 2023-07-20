@@ -5,6 +5,7 @@ import { fetchProductDescription } from "../../redux/productDescription/productD
 import Loader from "../Loader/Loader";
 import { TfiArrowCircleRight } from "react-icons/tfi";
 import "./ProductDescription.css";
+import { Link } from "react-router-dom";
 export default function ProductDescription() {
   const dispatch = useDispatch();
 
@@ -53,7 +54,10 @@ export default function ProductDescription() {
                 <p>Price:</p> <p className="vehicle-info-data">{element.price}</p>
               </li>
               <div className="reserve-vehicle">
-                <p>Reserve</p> <TfiArrowCircleRight className="arrow-right-reserve" />
+              <Link to={`/cars/${id}/reserve`} className="btn btn-primary">
+                       <p>Reserve</p> <TfiArrowCircleRight className="arrow-right-reserve" />
+          </Link>
+                
               </div>
             </ul>
           </div>
