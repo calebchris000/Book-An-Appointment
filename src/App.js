@@ -20,14 +20,14 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route exact path="/addcars" element={<AddCar />} />
-        <Route exact path="/deleteCar" element={<DeleteCar />} />
-        <Route exact path="/signup" element={<SignupForm />} />
-        <Route exact path="/login" element={<LoginForm />} />
-        <Route exact path="/new_reservations" element={<Reservation />} />
-        <Route exact path="/reservedCars" element={<ReservedCars />} />
-        <Route exact path="cars/:id" element={<ProductDescription />} />
-        <Route exact path="/" element={<Home />} />
+        <Route path="/addcars" element={<AddCar />} />
+        <Route path="/deleteCar" element={<DeleteCar />} />
+        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/new_reservations" element={<Reservation />} />
+        <Route path="/reservedCars" element={<ReservedCars />} />
+        <Route path="cars/:id" element={<ProductDescription />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </Router>
   );
