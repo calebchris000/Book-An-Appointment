@@ -18,6 +18,7 @@ import ReserveProduct from './components/ReserveProduct'
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setAuth } from "./redux/authSlice";
+import AddCarForm from "./components/AddCarForm";
 
 
 
@@ -33,7 +34,7 @@ useEffect(() => {
       <Navbar />
       <Routes>
         {/* <Route exact path="/addcars" element={<AddCar />} /> */}
-        <Route exact path="/deleteCar" element={<ReserveProduct />} />
+        <Route exact path="/deleteCar" element={<DeleteCar />} />
         <Route exact path="/signup" element={<SignupForm />} />
         <Route exact path="/login" element={<LoginForm />} />
         <Route exact path="/reservation_form" element={<ReservationForm />} />
@@ -41,6 +42,7 @@ useEffect(() => {
         <Route exact path="cars/:id" element={<ProductDescription />} />
         <Route exact path="cars/:id/reserve" element={<ReserveProduct />} />
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/addcars" element={<AddCarForm />} />
       </Routes>
     </Router>
   );

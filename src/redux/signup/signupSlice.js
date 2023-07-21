@@ -21,6 +21,15 @@ export const signupUser = createAsyncThunk("signup/User", async (authData) => {
   }
 });
 
+export const addCar = createAsyncThunk("product/addcar", async (authData) => {
+  try {
+    const response = await fetch("http://127.0.0.1:3001/" + authData.endPoints, authData.method);
+    return response.data;
+  } catch (error) {
+    return error.message;
+  }
+});
+
 const signupSlice = createSlice({
   name: "signup",
   initialState: {
@@ -44,7 +53,15 @@ const signupSlice = createSlice({
       .addCase(signupUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
-      });
+      })
+      .addCase(addCar.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.successMessage = action.payload.message;
+      })
+      .addCase(addCar.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
   },
 });
 
