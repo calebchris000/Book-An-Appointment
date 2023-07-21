@@ -4,11 +4,13 @@ import productDescriptionReducer from "./productDescription/productDescriptionSl
 import signupReducer from "./signup/signupSlice"
 import authReducer from "./authSlice";
 import thunk from "redux-thunk";
+import ReservationReducer from "./Reservations/ReservationSlice";
 
 const store = configureStore({
   reducer: {
     productDetails: productDetailsReducer,
     productDescription: productDescriptionReducer,
+    reservations: ReservationReducer,
     signup: signupReducer,
     auth: authReducer
   },

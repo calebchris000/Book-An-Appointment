@@ -5,7 +5,7 @@ import AddCar from "./components/Addcars/AddCars";
 
 import DeleteCar from "./components/DeleteCar";
 import ReservationForm from "./components/ReservationForm";
-import ReservedCars from "./components/ReservedCars";
+import Reservations from "./components/Reservations/Reservations";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,6 +33,7 @@ useEffect(() => {
     <Router>
       <Navbar />
       <Routes>
+
         {/* <Route exact path="/addcars" element={<AddCar />} /> */}
         <Route exact path="/deleteCar" element={<DeleteCar />} />
         <Route exact path="/signup" element={<SignupForm />} />
@@ -43,6 +44,8 @@ useEffect(() => {
         <Route exact path="cars/:id/reserve" element={<ReserveProduct />} />
         <Route exact path="/" element={<Home />} />
         <Route exact path="/addcars" element={<AddCarForm />} />
+          <Route path="/reservations" element={<Private><Reservations /></Private> } />
+
       </Routes>
     </Router>
   );

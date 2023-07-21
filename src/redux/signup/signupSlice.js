@@ -36,6 +36,7 @@ const signupSlice = createSlice({
     isLoading: false,
     error: null,
     successMessage: "",
+    loggedIn: false
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -48,6 +49,7 @@ const signupSlice = createSlice({
       .addCase(signupUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.successMessage = payload.status.message;
+        state.loggedIn = true
 
       })
       .addCase(signupUser.rejected, (state, action) => {
