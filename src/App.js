@@ -5,7 +5,7 @@ import AddCar from "./components/Addcars/AddCars";
 
 import DeleteCar from "./components/DeleteCar";
 import ReservationForm from "./components/ReservationForm";
-import ReservedCars from "./components/ReservedCars";
+import Reservations from "./components/Reservations/Reservations";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -41,9 +41,9 @@ useEffect(() => {
         <Route path="/" element={<Home />} />
         {/* <Route path="/deleteCar" element={<ReserveProduct />} /> */}
         <Route path="/reservation_form" element={<ReservationForm />} />
-        <Route path="/reservedCars" element={(<Private><ReservedCars /> </Private>)} />
         <Route path="cars/:id" element={<ProductDescription />} />
         <Route path="cars/:id/reserve" element={<ReserveProduct />} />
+        <Route path="/reservations" element={<Private><Reservations /></Private> } />
       </Routes>
     </Router>
   );

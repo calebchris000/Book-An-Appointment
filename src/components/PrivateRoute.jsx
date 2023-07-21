@@ -3,12 +3,13 @@ import { Navigate } from "react-router";
 import PropTypes from 'prop-types';
 
 function Private ( {children})  {
-const {isauth} = useSelector((state) => state.auth);
+const {isAuth} = useSelector((state) => state.auth);
 
-if(!isauth)
+if(!isAuth)
 {
     return <Navigate to = "/login" />
 }
+console.log(isAuth);
 return children;
 }
 

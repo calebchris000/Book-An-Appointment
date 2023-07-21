@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <section className="homepage">
       <div className="hero">
-        <h1 className="hero_header">LATEST MODELS  Welcome {name}</h1>
+        <h1 className="hero_header">Welcome Back, {name}</h1>
         <p className="hero_text">Please select a Model</p>
         <div className="vehicle-container" >
           {Products.map((car) => (

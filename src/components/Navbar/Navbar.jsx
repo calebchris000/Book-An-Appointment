@@ -44,7 +44,7 @@ const Navbar = () => {
           <Link className="links" to={"/reservation_form"} onClick={handleClick}>
             RESERVE
           </Link>
-          <Link className="links" to={"/reservedCars"} onClick={handleClick}>
+          <Link className="links" to={"/reservations"} onClick={handleClick}>
             MY RESERVATIONS
           </Link>
           <Link className="links" to={"/addcars"} onClick={handleClick}>

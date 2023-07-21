@@ -8,7 +8,11 @@ const initialState = {
 
 export const fetchProductDetails = createAsyncThunk("Products/fetchProductDetails", async () => {
   try {
-    const response = await axios.get("http://127.0.0.1:3001/api/products");
+    const response = await axios.get("http://127.0.0.1:3001/api/products", {
+      headers: {
+        Authorization: localStorage.getItem("authToken"),
+      },
+    });
     return response.data;
   } catch (error) {
     return error.message;
