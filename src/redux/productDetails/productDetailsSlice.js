@@ -4,6 +4,7 @@ import axios from "axios";
 const initialState = {
   Products: [],
   isLoading: false,
+  messages: '',
 };
 
 export const fetchProductDetails = createAsyncThunk("Products/fetchProductDetails", async () => {
@@ -18,6 +19,22 @@ export const fetchProductDetails = createAsyncThunk("Products/fetchProductDetail
     return error.message;
   }
 });
+
+export const deleteProduct = createAsyncThunk("Products/deleteProduct", async (id) => {
+   try {
+    const response = await fetch("http://127.0.0.1:3001/api/products/" + id, {
+      method: 'DELETE',
+      headers: {
+        Authorization: localStorage.getItem('authToken'),
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return error.message;
+  }
+});
+
 
 export const productDetailsSlice = createSlice({
   name: "Products",
@@ -41,6 +58,10 @@ export const productDetailsSlice = createSlice({
         ...state,
         isLoading: false,
         // isError: true,
+      }))
+      .addCase(deleteProduct.fulfilled, (state, action) => ({
+        ...state,
+        messages: action.payload,
       }));
   },
 });

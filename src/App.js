@@ -18,6 +18,7 @@ import ReserveProduct from './components/ReserveProduct'
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setAuth } from "./redux/authSlice";
+import AddCarForm from "./components/AddCarForm";
 
 
 
@@ -32,18 +33,19 @@ useEffect(() => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/addcars" element={<AddCar />} />
-        <Route path="/deleteCar" element={<DeleteCar />} />
-        <Route path="/signup" element={<SignupForm />} />
-        <Route path="/login" element={<LoginForm />} />
-        {/* <Route path="/new_reservations" element={<Reservation />} /> */}
-        <Route path="cars/:id" element={<ProductDescription />} />
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/deleteCar" element={<ReserveProduct />} /> */}
-        <Route path="/reservation_form" element={<ReservationForm />} />
-        <Route path="cars/:id" element={<ProductDescription />} />
-        <Route path="cars/:id/reserve" element={<ReserveProduct />} />
-        <Route path="/reservations" element={<Private><Reservations /></Private> } />
+
+        {/* <Route exact path="/addcars" element={<AddCar />} /> */}
+        <Route exact path="/deleteCar" element={<DeleteCar />} />
+        <Route exact path="/signup" element={<SignupForm />} />
+        <Route exact path="/login" element={<LoginForm />} />
+        <Route exact path="/reservation_form" element={<ReservationForm />} />
+        <Route exact path="/reservedCars" element={(<Private><ReservedCars /> </Private>)} />
+        <Route exact path="cars/:id" element={<ProductDescription />} />
+        <Route exact path="cars/:id/reserve" element={<ReserveProduct />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/addcars" element={<AddCarForm />} />
+          <Route path="/reservations" element={<Private><Reservations /></Private> } />
+
       </Routes>
     </Router>
   );
