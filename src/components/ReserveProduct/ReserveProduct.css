@@ -1,0 +1,90 @@
+.reservation-form-container {
+  width: calc(100% - 14rem);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  /* border: 2px dashed; */
+  display: flex;
+  flex-wrap: wrap;
+  user-select: none;
+  background-color: #8ae700;
+}
+
+.reservation-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.reservation-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.name-input,
+.car-select,
+.location-select,
+.date-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+.car-location-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.car-selection,
+.location-selection {
+  margin-bottom: 20px;
+}
+
+.create-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.create-button:hover {
+  background-color: #45a049;
+}
+
+.create-button:active {
+  background-color: #3e9141;
+}
+
+@media (max-width: 768px) {
+  .reservation-form-container {
+    width: 100%;
+  }
+
+  .reservation-form {
+    width: 80%;
+    margin: 0 auto;
+  }
+}

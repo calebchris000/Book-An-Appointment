@@ -12,7 +12,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
-    loggedIn ? navigate("/") : navigate("/login");
+    loggedIn || authToken ? navigate("/") : navigate("/login");
   }, [loggedIn]);
 
   const handleLogin = (e) => {

@@ -3,10 +3,12 @@ import "./Reservations.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getReservations } from "../../redux/Reservations/ReservationSlice";
 import Loader from "../Loader/Loader";
+import { setAuth } from "../../redux/authSlice";
 const Reservations = () => {
   const dispatch = useDispatch();
   const { loading, success, failure, errorMessage, reservations } = useSelector((store) => store.reservations);
   useEffect(() => {
+    dispatch(setAuth())
     dispatch(getReservations());
   }, []);
 
