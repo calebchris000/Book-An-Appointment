@@ -23,17 +23,17 @@ const Reservations = () => {
     return (
       <section className="reservation-container">
         <h2 className="reservation-header">MY RESERVATIONS</h2>
-        <div class="reservation-list">
-          <div class="reservation-items-container">
+        <div className="reservation-list">
+          <div className="reservation-items-container">
             {typeof reservations !== "object" ? (
               <h1>Reservation is Empty</h1>
             ) : (
               reservations.data.map((item) => (
-                <div key={item.id} class="reservation-card">
-                  <div class="reservation-card__id">Reservation #{item.id}</div>
-                  <div class="reservation-card__city">Name: {item.product.name}</div>
-                  <div class="reservation-card__date">Date: {item.date}</div>
-                  <div class="reservation-card__city">City: {item.city}</div>
+                <div key={item.id} className="reservation-card">
+                  <div className="reservation-card__id">Reservation #{item.id}</div>
+                  <div className="reservation-card__city">Name: {item.product.name}</div>
+                  <div className="reservation-card__date">Date: {item.date}</div>
+                  <div className="reservation-card__city">City: {item.city}</div>
                 </div>
               ))
             )}

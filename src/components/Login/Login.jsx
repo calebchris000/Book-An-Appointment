@@ -3,17 +3,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "../../redux/signup/signupSlice";
 import { useNavigate } from "react-router";
 import "./Login.css";
+import { Link } from "react-router-dom";
+import { loginUser, verifyLoginStatus } from "../../redux/login/LoginSlice";
 const LoginForm = () => {
   const dispatch = useDispatch();
-  const { loggedIn } = useSelector((store) => store.signup);
+  const { success, failure, message } = useSelector((store) => store.login);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    const authToken = localStorage.getItem("authToken");
-    loggedIn || authToken ? navigate("/") : navigate("/login");
-  }, [loggedIn]);
+    dispatch(verifyLoginStatus());
+    try {
+      if (message.status.code === 200) {
+        navigate("/");
+      }
+    } catch (error) {
+    }
+  }, [message]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -31,19 +38,20 @@ const LoginForm = () => {
         body: JSON.stringify({ user: userData }),
       },
     };
-    dispatch(signupUser(requestOptions));
+    dispatch(loginUser(requestOptions));
   };
 
   return (
-    <div class="login-container">
-      <form onSubmit={handleLogin} class="login-form">
+    <div className="login-container">
+      <form onSubmit={handleLogin} className="login-form">
         <h1>Welcome Back!</h1>
-        <label for="email">Email:</label>
+        <label htmlFor="email">Email:</label>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" required />
-        <label for="password">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" required />
         <button type="submit">Log In</button>
       </form>
+      <Link to={"/signup"}>Signup</Link>
     </div>
   );
 };

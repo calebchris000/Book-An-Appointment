@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "../redux/signup/signupSlice";
+import { Link } from "react-router-dom";
 
 const SignupForm = () => {
   const dispatch = useDispatch();
@@ -35,10 +36,11 @@ const SignupForm = () => {
 
   return (
     <div>
-      <h2>Signup</h2>
+      <h1>Signup</h1>
       {successMessage && <div className="success-message">{successMessage}</div>}
       {error && <div className="error-message">{error}</div>}
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <form onSubmit={handleSubmit} className="login-form">
         <div>
           <label>Name:</label>
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
@@ -59,6 +61,8 @@ const SignupForm = () => {
           {isLoading ? "Loading..." : "Signup"}
         </button>
       </form>
+    <Link to={'/login'}>Login</Link>
+    </div>
     </div>
   );
 };

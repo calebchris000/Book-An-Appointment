@@ -35,9 +35,9 @@ function App() {
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/reservation_form" element={<Private><ReservationForm /></Private>} />
-        <Route path="cars/:id" element={<ProductDescription />} />
-        <Route path="cars/:id/reserve" element={<ReserveProduct />} />
-        <Route path="/" element={<Home />} />
+        <Route path="cars/:id" element={<Private><ProductDescription /></Private>} />
+        <Route path="cars/:id/reserve" element={<Private><ReserveProduct /></Private>} />
+        <Route path="/" element={<Private><Home /></Private> } />
         <Route
           path="/addcars"
           element={

@@ -5,6 +5,7 @@ import signupReducer from "./signup/signupSlice"
 import authReducer from "./authSlice";
 import thunk from "redux-thunk";
 import ReservationReducer from "./Reservations/ReservationSlice";
+import LoginReducer from "./login/LoginSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,7 +13,8 @@ const store = configureStore({
     productDescription: productDescriptionReducer,
     reservations: ReservationReducer,
     signup: signupReducer,
-    auth: authReducer
+    auth: authReducer,
+    login: LoginReducer
   },
   middleware: [thunk],
 });

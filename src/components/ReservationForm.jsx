@@ -54,16 +54,16 @@ const ReservationForm = ({ selectedProductID, selectedCar }) => {
   ];
 
   return (
-    <div class="reservation-form-container">
+    <div className="reservation-form-container">
       <img src="https://i.ibb.co/pK2TsyG/486-4862054-super-car-png.png" className="reservation-image-overlay"></img>
 
-      <h3 class="reservation-title text-white">Create New Reservation</h3>
-      <form class="reservation-form" onSubmit={handleSubmit}>
-        <input class="name-input" type="text" value={name} disabled />
-        <div class="car-location-container">
+      <h3 className="reservation-title text-white">Create New Reservation</h3>
+      <form className="reservation-form" onSubmit={handleSubmit}>
+        <input className="name-input" type="text" value={name} disabled />
+        <div className="car-location-container">
           {!selectedCar && (
-            <div class="car-selection">
-              <select class="car-select" value={formData.product_id} onChange={handleChange} name="product_id">
+            <div className="car-selection">
+              <select className="car-select" value={formData.product_id} onChange={handleChange} name="product_id">
                 <option value="">Select a Car</option>
                 {Products.map((car) => (
                   <option key={car.id} value={car.id}>
@@ -73,8 +73,8 @@ const ReservationForm = ({ selectedProductID, selectedCar }) => {
               </select>
             </div>
           )}
-          <div class="location-selection">
-            <select class="location-select" value={formData.city} onChange={handleChange} name="city">
+          <div className="location-selection">
+            <select className="location-select" value={formData.city} onChange={handleChange} name="city">
               <option value="">Select a location</option>
               {locations.map((location) => (
                 <option key={location.id} value={location.name}>
@@ -84,8 +84,8 @@ const ReservationForm = ({ selectedProductID, selectedCar }) => {
             </select>
           </div>
         </div>
-        <input class="date-input" type="date" value={formData.date} onChange={handleChange} name="date" />
-        <button class="create-button" type="submit">
+        <input className="date-input" type="date" value={formData.date} onChange={handleChange} name="date" />
+        <button className="create-button" type="submit">
           Create Reservation
         </button>
       </form>

@@ -43,7 +43,7 @@ const Home = () => {
         <p className="hero_text">Please select a Model</p>
         <div className="vehicle-container" >
           {Products.map((car) => (
-            <div onClick={() => navigate(`cars/${car.id}`)}>
+            <div key={car.id} onClick={() => navigate(`cars/${car.id}`)}>
             <Vehicle key={car.id} model={car.model} description={car.description} image={car.image} />
             </div>
           ))}

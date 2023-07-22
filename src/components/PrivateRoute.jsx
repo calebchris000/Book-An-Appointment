@@ -1,19 +1,17 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-function Private ( {children})  {
-const {isAuth} = useSelector((state) => state.auth);
+function Private({ children }) {
+  const { isAuth } = useSelector((state) => state.auth);
 
-if(!isAuth)
-{
-    return <Navigate to = "/login" />
-}
-console.log(isAuth);
-return children;
+  if (!isAuth) {
+    return <Navigate to="/login" />;
+  }
+  return children;
 }
 
 Private.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-  export default Private;
+  children: PropTypes.node.isRequired,
+};
+export default Private;
