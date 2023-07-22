@@ -20,7 +20,9 @@ function DeleteCar() {
   }
   return (
     <div className="remove-car-container">
-      <h1 className="remove-car-title">Remove Car</h1>
+      <img src="https://i.ibb.co/pK2TsyG/486-4862054-super-car-png.png" className="reservation-image-overlay"></img>
+
+      <h1 className="remove-car-title">REMOVE CAR</h1>
       <ul className="remove-car-list">
         {Products.map((product) => (
           <li key={product.id} className="remove-car-item">

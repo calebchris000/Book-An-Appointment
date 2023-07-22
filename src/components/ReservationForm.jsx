@@ -55,6 +55,8 @@ const ReservationForm = ({ selectedProductID, selectedCar }) => {
 
   return (
     <div class="reservation-form-container">
+      <img src="https://i.ibb.co/pK2TsyG/486-4862054-super-car-png.png" className="reservation-image-overlay"></img>
+
       <h3 class="reservation-title text-white">Create New Reservation</h3>
       <form class="reservation-form" onSubmit={handleSubmit}>
         <input class="name-input" type="text" value={name} disabled />

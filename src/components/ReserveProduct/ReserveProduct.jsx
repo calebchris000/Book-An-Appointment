@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import ReservationForm from "../ReservationForm";
 import { useSelector } from "react-redux";
-import './ReserveProduct.css';
+import "./ReserveProduct.css";
 
 const ReserveProduct = () => {
   const { id } = useParams();
@@ -10,6 +10,7 @@ const ReserveProduct = () => {
 
   return (
     <section className="reserve-product-form">
+
       <ReservationForm selectedProductID={id} selectedCar={selectedProduct} />
     </section>
   );
