@@ -53,12 +53,9 @@ export default function ProductDescription() {
               <li>
                 <p>Price:</p> <p className="vehicle-info-data">{element.price}</p>
               </li>
-              <div className="reserve-vehicle">
-              <Link to={`/cars/${id}/reserve`} className="btn btn-primary">
-                       <p>Reserve</p> <TfiArrowCircleRight className="arrow-right-reserve" />
-          </Link>
-                
-              </div>
+              <Link to={`/cars/${id}/reserve`} className="reserve-vehicle">
+                <p>Reserve</p> <TfiArrowCircleRight className="arrow-right-reserve" />
+              </Link>
             </ul>
           </div>
         </div>

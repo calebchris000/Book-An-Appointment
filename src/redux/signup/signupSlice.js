@@ -6,7 +6,7 @@ export const signupUser = createAsyncThunk("signup/User", async (authData) => {
     const response = await fetch("http://127.0.0.1:3001/" + authData.endPoints, authData.method);
     
     const data = await response.json()
-    if (authData.sign_in && data.status.code === 200) {
+    if (data.status.code === 200) {
       const token = response.headers.get('Authorization');
       const userName = data.data.name;
       localStorage.setItem('authToken', token);
@@ -26,7 +26,7 @@ export const addCar = createAsyncThunk("product/addcar", async (authData) => {
     const response = await fetch("http://127.0.0.1:3001/" + authData.endPoints, authData.method);
     return response.data;
   } catch (error) {
-    return error.message;
+    return error;
   }
 });
 
@@ -36,7 +36,8 @@ const signupSlice = createSlice({
     isLoading: false,
     error: null,
     successMessage: "",
-    loggedIn: false
+    loggedIn: false,
+    isAddCar: null
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -58,11 +59,14 @@ const signupSlice = createSlice({
       })
       .addCase(addCar.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.successMessage = action.payload.message;
+        state.successMessage = action.payload;
+        state.isAddCar = true;
       })
       .addCase(addCar.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
+        state.isAddCar = false;
+
       })
   },
 });

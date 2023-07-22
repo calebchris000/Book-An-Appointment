@@ -1,54 +1,87 @@
-import React from 'react';
-import './AddCars.css';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addCar } from "../../redux/signup/signupSlice";
+import "./AddCars.css";
+import { useNavigate } from "react-router";
+import { setAuth } from "../../redux/authSlice";
+const AddCarForm = () => {
+  const dispatch = useDispatch();
+  const { isLoading, error, successMessage, isAddCar } = useSelector((store) => store.signup);
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
+  const [model, setModel] = useState("");
+  const [engine, setEngine] = useState("");
+  const [price, setPrice] = useState("");
+  const [mileage, setMileage] = useState("");
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const userData = {
+      name,
+      image,
+      description,
+      model,
+      engine,
+      price,
+      mileage,
+    };
+    const requestOptions = {
+      sign_in: true,
+      endPoints: "api/products",
+      method: {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      },
+    };
+    dispatch(addCar(requestOptions));
+  };
 
-const AddCar = () => (
-  <div className="form-container">
-    <form className="add-car-form">
-      <h2 className="title">Add A New Car</h2>
-      <div className="w-full">
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter Car name"
-          autoComplete="off"
-          required
-        />
-      </div>
-      <div className="w-full">
-        <input
-          type="text"
-          name="description"
-          placeholder="Description"
-          required
-        />
-      </div>
-      <div className="w-full">
-        <input
-          type="text"
-          placeholder="Model"
-          name="model"
-          required
-        />
-      </div>
-      <div className="w-full">
-        <input
-          type="number"
-          placeholder="Price per day"
-          name="price"
-          required
-        />
-      </div>
-      <div className="w-full">
-        <input
-          type="text"
-          placeholder="Image URL"
-          name="image"
-          id="basic-url"
-          aria-describedby="basic-addon3"
-        />
-      </div>
-      <button type="submit">Add Car</button>
-    </form>
-  </div>
-);
-export default AddCar;
+  useEffect(() => {
+    dispatch(setAuth());
+    isAddCar === true ? navigate("/") : navigate("/addcars");
+  }, [isAddCar]);
+  return (
+    <div className="add-car-form">
+        <img src="https://i.ibb.co/pK2TsyG/486-4862054-super-car-png.png" className="reservation-image-overlay"></img>
+      <h2 className="add-car-title">ADD A CAR</h2>
+      {successMessage && <div className="success-message">{successMessage}</div>}
+      {error && <div className="error-message">{error}</div>}
+      <form className="add-car-form-component" onSubmit={handleSubmit}>
+        <div className="">
+          <label className="add-car-label">Name:</label>
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+        </div>
+        <div className="">
+          <label className="add-car-label">Image:</label>
+          <input className="add-car-input" type="text" value={image} onChange={(e) => setImage(e.target.value)} required />
+        </div>
+        <div className="">
+          <label className="add-car-label">Description:</label>
+          <input className="add-car-input" type="text" value={description} onChange={(e) => setDescription(e.target.value)} required />
+        </div>
+        <div className="">
+          <label className="add-car-label">Model:</label>
+          <input className="add-car-input" type="text" value={model} onChange={(e) => setModel(e.target.value)} required />
+        </div>
+        <div className="">
+          <label className="add-car-label">Engine:</label>
+          <input className="add-car-input" type="text" value={engine} onChange={(e) => setEngine(e.target.value)} required />
+        </div>
+        <div className="">
+          <label className="add-car-label">Price:</label>
+          <input className="add-car-input" type="integer" value={price} onChange={(e) => setPrice(e.target.value)} required />
+        </div>
+        <div className="">
+          <label className="add-car-label">Mileage:</label>
+          <input className="add-car-input" type="integer" value={mileage} onChange={(e) => setMileage(e.target.value)} required />
+        </div>
+        <button className="submit-add-car" type="submit" disabled={isLoading}>
+          {isLoading ? "Loading..." : "Add Car"}
+        </button>
+      </form>
+    </div>
+  );
+};
+export default AddCarForm;

@@ -1,6 +1,7 @@
 .reservation-container {
   width: calc(100% - 14rem);
   margin-left: auto;
+  height: 100vh;
   background-color: #8ae700;
   /* overflow-y: scroll; */
   padding-top: 3rem;

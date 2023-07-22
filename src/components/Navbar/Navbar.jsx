@@ -48,7 +48,7 @@ const Navbar = () => {
             MY RESERVATIONS
           </Link>
           <Link className="links" to={"/addcars"} onClick={handleClick}>
-            ADD MOTORCYCLE
+            ADD CAR
           </Link>
           <Link className="links" to={"/deleteCar"} onClick={handleClick}>
             DELETE

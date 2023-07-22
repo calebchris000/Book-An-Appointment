@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductDetails } from "../../redux/productDetails/productDetailsSlice";
 import Loader from "../Loader/Loader";
 import { useNavigate } from 'react-router-dom';
+import { setAuth } from "../../redux/authSlice";
 const Vehicle = ({ model, description, image }) => {
   return (
     <>
@@ -23,6 +24,7 @@ const Home = () => {
   const { isLoading, Products } = useSelector((store) => store.productDetails);
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(setAuth())
     dispatch(fetchProductDetails());
   }, []);
   const name = localStorage.getItem('name')
