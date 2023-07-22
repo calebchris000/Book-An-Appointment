@@ -44,7 +44,8 @@ const AddCarForm = () => {
   }, [isAddCar]);
   return (
     <div className="add-car-form">
-      <h2>Add Car</h2>
+        <img src="https://i.ibb.co/pK2TsyG/486-4862054-super-car-png.png" className="reservation-image-overlay"></img>
+      <h2 className="add-car-title">ADD A CAR</h2>
       {successMessage && <div className="success-message">{successMessage}</div>}
       {error && <div className="error-message">{error}</div>}
       <form className="add-car-form-component" onSubmit={handleSubmit}>

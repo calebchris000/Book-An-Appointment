@@ -1,13 +1,7 @@
 /* CSS for Add Car Form */
 
 .add-car-form {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 30px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #8ae700;
   width: calc(100% - 14rem);
   margin-left: auto;
   /* height: 14rem; */
@@ -16,7 +10,12 @@
 h2 {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+}
+
+.add-car-title {
+  padding-top: 3rem;
+  text-align: center;
+  color: #fff;
 }
 
 .success-message,
@@ -39,7 +38,15 @@ h2 {
 
 .add-car-form-component {
   display: grid;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   grid-row-gap: 20px;
+  background-color: #fff;
+  position: relative;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .add-car-label {
