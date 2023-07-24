@@ -3,7 +3,33 @@ import Logo from "../../assets/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import "./Navbar.css";
 import { useEffect } from "react";
+import { setAuth } from "../../redux/authSlice";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { signupUser } from "../../redux/signup/signupSlice";
+
 const Navbar = () => {
+  const {isAuth} = useSelector((store) => store.auth)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setAuth());
+  }, [dispatch]);
+
+  const handleLogout = () => {
+    const data = {
+      sign_in: false,
+      end_point: 'users/sign_out',
+      method_data: {
+        method: 'DELETE',
+        headers: {
+          Authorization: localStorage.getItem('authToken'),
+          'Content-Type': 'application/json',
+        },
+      },
+    };
+    dispatch(signupUser(data));
+  };
   useEffect(() => {
     window.addEventListener("resize", () => {
       const navbar = document.getElementsByClassName("container-nav")[0];
@@ -53,6 +79,17 @@ const Navbar = () => {
           <Link className="links" to={"/deleteCar"} onClick={handleClick}>
             DELETE
           </Link>
+          {isAuth && (
+                <>
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="btn btn-danger"
+                  >
+                    SignOut
+                  </button>
+                </>
+              )}
         </nav>
       </div>
     </>
