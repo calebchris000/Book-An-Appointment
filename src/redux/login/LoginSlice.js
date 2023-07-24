@@ -30,26 +30,7 @@ export const loginUser = createAsyncThunk("login/User", async (authData) => {
   }
 });
 
-export const verifyLoginStatus = createAsyncThunk("login/Verify", async () => {
-  try {
-    const token = localStorage.getItem("authToken");
-    // if (!token) {
-    //   return;
-    // }
 
-    const response = await fetch(url + "users/sign_in", {
-      method: "GET",
-      headers: {
-        Authorization: token,
-      },
-    });
-    const result = await response.json();
-    // console.log(result);
-    return result;
-  } catch (error) {
-    return error;
-  }
-});
 
 const LoginSlice = createSlice({
   name: "Login",
@@ -76,20 +57,6 @@ const LoginSlice = createSlice({
         state.message = payload;
       })
       .addCase(loginUser.rejected, (state, { error }) => {
-        state.loading = false;
-        state.failure = true;
-        state.message = error;
-      })
-      .addCase(verifyLoginStatus.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(verifyLoginStatus.fulfilled, (state, { payload }) => {
-        state.loading = false;
-        state.success = true;
-        state.loggedIn = true;
-        state.message = payload;
-      })
-      .addCase(verifyLoginStatus.rejected, (state, { error }) => {
         state.loading = false;
         state.failure = true;
         state.message = error;

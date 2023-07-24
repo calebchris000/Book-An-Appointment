@@ -4,23 +4,21 @@ import { signupUser } from "../../redux/signup/signupSlice";
 import { useNavigate } from "react-router";
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { loginUser, verifyLoginStatus } from "../../redux/login/LoginSlice";
+import { loginUser } from "../../redux/login/LoginSlice";
 const LoginForm = () => {
   const dispatch = useDispatch();
   const { success, failure, message } = useSelector((store) => store.login);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const { isAuth } = useSelector((store) => store.auth);
   useEffect(() => {
-    dispatch(verifyLoginStatus());
     try {
-      if (message.status.code === 200) {
+      if (isAuth) {
         navigate("/");
       }
-    } catch (error) {
-    }
-  }, [message]);
+    } catch (error) {}
+  }, [isAuth]);
 
   const handleLogin = (e) => {
     e.preventDefault();
