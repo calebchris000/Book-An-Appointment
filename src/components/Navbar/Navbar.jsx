@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import "./Navbar.css";
@@ -7,28 +7,34 @@ import { setAuth } from "../../redux/authSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { signupUser } from "../../redux/signup/signupSlice";
+import { setLogin } from "../../redux/login/LoginSlice";
 
 const Navbar = () => {
-  const {isAuth} = useSelector((store) => store.auth)
+  const { isAuth } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(setAuth());
   }, [dispatch]);
 
   const handleLogout = () => {
+    const navbar = document.getElementsByClassName("container-nav")[0];
+    navbar.style.display === "block" ? (navbar.style.display = "none") : (navbar.style.display = "block");
+
     const data = {
       sign_in: false,
-      endPoints: 'users/sign_out',
+      endPoints: "users/sign_out",
       method: {
-        method: 'DELETE',
+        method: "DELETE",
         headers: {
-          Authorization: localStorage.getItem('authToken'),
-          'Content-Type': 'application/json',
+          Authorization: localStorage.getItem("authToken"),
+          "Content-Type": "application/json",
         },
       },
     };
     dispatch(signupUser(data));
+    localStorage.clear()
+    navigate("/login");
   };
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -82,16 +88,12 @@ const Navbar = () => {
             DELETE
           </Link>
           {isAuth && (
-                <>
-                  <button
-                    type="button"
-                    onClick={handleLogout}
-                    className="btn btn-danger"
-                  >
-                    SignOut
-                  </button>
-                </>
-              )}
+            <>
+              <button type="button" onClick={handleLogout} className="btn btn-danger">
+                SignOut
+              </button>
+            </>
+          )}
         </nav>
       </div>
     </>

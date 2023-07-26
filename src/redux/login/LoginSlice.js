@@ -30,11 +30,15 @@ export const loginUser = createAsyncThunk("login/User", async (authData) => {
   }
 });
 
-
-
 const LoginSlice = createSlice({
   name: "Login",
   initialState,
+
+  reducers: {
+    setLogin: (state) => {
+      state.loggedIn = !state.loggedIn;
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -60,8 +64,10 @@ const LoginSlice = createSlice({
         state.loading = false;
         state.failure = true;
         state.message = error;
-      })
+      });
   },
 });
+
+export const { setLogin } = LoginSlice.actions;
 
 export default LoginSlice.reducer;
