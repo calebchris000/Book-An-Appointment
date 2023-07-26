@@ -7,7 +7,7 @@ import { setAuth } from "../../redux/authSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { signupUser } from "../../redux/signup/signupSlice";
-import { setLogin } from "../../redux/login/LoginSlice";
+import { resetsetLogin } from "../../redux/login/LoginSlice";
 
 const Navbar = () => {
   const { isAuth } = useSelector((store) => store.auth);
@@ -32,6 +32,7 @@ const Navbar = () => {
         },
       },
     };
+    dispatch(resetsetLogin())
     dispatch(signupUser(data));
     localStorage.clear()
     navigate("/login");

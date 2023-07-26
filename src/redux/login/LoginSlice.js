@@ -35,8 +35,8 @@ const LoginSlice = createSlice({
   initialState,
 
   reducers: {
-    setLogin: (state) => {
-      state.loggedIn = !state.loggedIn;
+    resetsetLogin: (state) => {
+      state.loggedIn = false;
     },
   },
 
@@ -68,6 +68,6 @@ const LoginSlice = createSlice({
   },
 });
 
-export const { setLogin } = LoginSlice.actions;
+export const { resetsetLogin } = LoginSlice.actions;
 
 export default LoginSlice.reducer;
