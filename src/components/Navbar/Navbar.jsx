@@ -19,8 +19,8 @@ const Navbar = () => {
   const handleLogout = () => {
     const data = {
       sign_in: false,
-      end_point: 'users/sign_out',
-      method_data: {
+      endPoints: 'users/sign_out',
+      method: {
         method: 'DELETE',
         headers: {
           Authorization: localStorage.getItem('authToken'),
