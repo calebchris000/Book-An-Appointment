@@ -12,6 +12,12 @@ const ReservationForm = ({ selectedProductID, selectedCar }) => {
   const dispatch = useDispatch();
   const { Products } = useSelector((store) => store.productDetails) || [];
 
+  const [formData, setFormData] = useState({
+    date: "",
+    city: "",
+    product_id: "",
+  });
+
   useEffect(() => {
     Products.length === 0 ? dispatch(fetchProductDetails()) : 0;
     postReservationSuccess === true ? navigate("/reservations") : 0;
@@ -39,12 +45,6 @@ const ReservationForm = ({ selectedProductID, selectedCar }) => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  const [formData, setFormData] = useState({
-    date: "",
-    city: "",
-    product_id: "",
-  });
 
   const locations = [
     { id: 1, name: "India" },
