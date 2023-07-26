@@ -32,9 +32,9 @@ const Navbar = () => {
         },
       },
     };
-    dispatch(resetsetLogin())
+    dispatch(resetsetLogin());
     dispatch(signupUser(data));
-    localStorage.clear()
+    localStorage.clear();
     navigate("/login");
   };
   useEffect(() => {

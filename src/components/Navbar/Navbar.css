@@ -9,9 +9,13 @@
   position: fixed;
   float: left;
   margin: 1rem;
-  z-index: 99;
+  /* z-index: 99; */
   cursor: pointer;
   display: none;
+  z-index: 1000000;
+}
+
+.hamburger-container {
 }
 
 .container-nav {
@@ -21,7 +25,7 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  z-index: 3;
+  z-index: 33333;
   width: 14rem;
 }
 

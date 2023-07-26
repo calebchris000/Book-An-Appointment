@@ -86,9 +86,9 @@ button:disabled {
 }
 
 /* Optional: Add responsive design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .add-car-form {
-    max-width: 100%;
+    width: 100%;
     padding: 20px;
   }
 }
