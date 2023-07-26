@@ -44,6 +44,8 @@ const Navbar = () => {
       item.style.backgroundColor = "white";
       item.style.color = "black";
       item.classList.remove("selected");
+      const navbar = document.getElementsByClassName("container-nav")[0];
+      navbar.style.display === "block" ? (navbar.style.display = "none") : (navbar.style.display = "block");
     });
     // e.target.style.backgroundColor = "#6fb900";
     // e.target.style.color = "#fff";
