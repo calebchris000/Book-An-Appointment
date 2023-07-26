@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { loginUser } from "../../redux/login/LoginSlice";
+import { setAuth } from "../../redux/authSlice";
 const LoginForm = () => {
   const dispatch = useDispatch();
   const { success, failure, message } = useSelector((store) => store.login);
@@ -12,13 +13,13 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { isAuth } = useSelector((store) => store.auth);
+  const { loggedIn } = useSelector((store) => store.login);
   useEffect(() => {
-    try {
-      if (isAuth) {
-        navigate("/");
-      }
-    } catch (error) {}
-  }, [isAuth]);
+    dispatch(setAuth())
+    if (isAuth === true) {
+      navigate("/");
+    }
+  }, [isAuth, loggedIn]);
 
   const handleLogin = (e) => {
     e.preventDefault();
