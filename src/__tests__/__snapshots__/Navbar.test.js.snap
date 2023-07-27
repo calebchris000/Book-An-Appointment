@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <div
+    className="hamburger-container"
+  >
+    <svg
+      className="hamburger"
+      fill="currentColor"
+      height="1em"
+      onClick={[Function]}
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 512 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
+      />
+    </svg>
+  </div>,
+  <div
+    className="container-nav"
+  >
+    <div
+      className="img_container"
+    >
+      <img
+        alt=""
+        className="logo"
+        src="logo.png"
+      />
+    </div>
+    <nav
+      className="navbar"
+    >
+      <a
+        className="links selected"
+        href="/"
+        onClick={[Function]}
+      >
+        HOME
+      </a>
+      <a
+        className="links"
+        href="/reservation_form"
+        onClick={[Function]}
+      >
+        RESERVE
+      </a>
+      <a
+        className="links"
+        href="/reservations"
+        onClick={[Function]}
+      >
+        MY RESERVATIONS
+      </a>
+      <a
+        className="links"
+        href="/addcars"
+        onClick={[Function]}
+      >
+        ADD CAR
+      </a>
+      <a
+        className="links"
+        href="/deleteCar"
+        onClick={[Function]}
+      >
+        DELETE
+      </a>
+    </nav>
+  </div>,
+]
+`;
