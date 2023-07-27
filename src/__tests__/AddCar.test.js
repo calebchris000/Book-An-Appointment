@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import store from '../redux/store';
 import AddCarForm from '../components/Addcars/AddCars';
 
-
 it('renders correctly', () => {
   const tree = renderer
     .create(
