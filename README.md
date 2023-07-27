@@ -110,6 +110,20 @@ To run the project, execute the following command:
   npm Start
 ```
 
+Sure, here's a very concise version:
+
+## Generating Secret Key Base Locally
+
+1. Clone the repository.
+2. Check if your application uses environment variables for the secret key.
+3. Install dependencies required for your application.
+4. Generate the secret key base using the appropriate method for your framework or language.
+5. Update the configuration to use the new secret key.
+6. Test your application locally to ensure it works with the new key.
+7. Keep the secret key secure and don't share it publicly.
+8. Backup the secret key in a safe location.
+9. Document the process in your README for future reference.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
