@@ -24,11 +24,6 @@ export default function ProductDescription() {
       </h3>
     );
   }
-  //    if (isError) {
-  //     return (
-  //       <h3>Error Occured while fetchinng...</h3>
-  //     );
-  //   }
   return (
     <>
       {productDescription.map((element) => (

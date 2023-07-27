@@ -11,7 +11,6 @@ import Navbar from "./components/Navbar/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LoginForm from "./components/Login/Login";
 import SignupForm from "./components/Signup";
-// import AddCar from "./components/Addcars/Addcars";
 import Private from "./components/PrivateRoute";
 import ProductDescription from "./components/Description/ProductDescription";
 import ReserveProduct from "./components/ReserveProduct/ReserveProduct";
