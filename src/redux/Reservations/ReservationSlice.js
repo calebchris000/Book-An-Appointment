@@ -18,7 +18,7 @@ export const getReservations = createAsyncThunk("Reservations/getReservations", 
     if (authToken) {
       const request = await axios.get("http://127.0.0.1:3001/api/reservations", {
         headers: {
-          Authorization: authToken,
+          Authorization: localStorage.getItem("authToken"),
         },
       });
 
