@@ -66,6 +66,11 @@
 ## 🛹 Kanban Board <a name="key-features"></a>
 
 - Kanban board link: [link](https://github.com/calebchris000/Book-An-Appointment-Frontend/projects/1)
+- We are four members in our team
+- [Caleb Nwaizu](https://github.com/calebchris000)
+- [Dheeraj Sachdeva]( https://github.com/dheerajsachdeva)
+- [Dan Matama]( https://github.com/danielmatama)
+- [Mohamed Badr]( https://github.com/mbdesigns1989)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
