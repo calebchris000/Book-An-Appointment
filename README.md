@@ -71,7 +71,7 @@
 - [Dheeraj Sachdeva]( https://github.com/dheerajsachdeva)
 - [Dan Matama]( https://github.com/danielmatama)
 - [Mohamed Badr]( https://github.com/mbdesigns1989)
-- {Screenshot of the initial Stage] (https://user-images.githubusercontent.com/112436618/252993020-68f3b5f3-b92f-42b7-8d79-d4a6c32aee14.png)
+- [Screenshot of the initial Stage]( https://user-images.githubusercontent.com/112436618/252993020-68f3b5f3-b92f-42b7-8d79-d4a6c32aee14.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
