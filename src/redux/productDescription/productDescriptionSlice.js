@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+const url = "https://cars-app-gvkh.onrender.com/";
 const initialState = {
   productDescription: [],
   isLoading: false,
@@ -8,7 +8,7 @@ const initialState = {
 
 export const fetchProductDescription = createAsyncThunk("productDescription/fetchProductDescription", async (id) => {
   try {
-    const response = await axios.get("http://127.0.0.1:3001/api/products/" + id);
+    const response = await axios.get(`${url}api/products/` + id);
     return response.data;
   } catch (error) {
     return error.message;

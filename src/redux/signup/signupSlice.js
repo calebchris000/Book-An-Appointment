@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const url = "https://cars-app-gvkh.onrender.com/"
+
 export const signupUser = createAsyncThunk("signup/User", async (authData) => {
   try {
-    const response = await fetch("http://127.0.0.1:3001/" + authData.endPoints, authData.method);
+    const response = await fetch(url + authData.endPoints, authData.method);
     
     const data = await response.json()
     if (data.status.code === 200) {
@@ -23,7 +25,7 @@ export const signupUser = createAsyncThunk("signup/User", async (authData) => {
 
 export const addCar = createAsyncThunk("product/addcar", async (authData) => {
   try {
-    const response = await fetch("http://127.0.0.1:3001/" + authData.endPoints, authData.method);
+    const response = await fetch(url + authData.endPoints, authData.method);
     return response.data;
   } catch (error) {
     return error;

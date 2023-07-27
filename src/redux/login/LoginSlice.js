@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
-const url = "http://127.0.0.1:3001/";
+const url = "https://cars-app-gvkh.onrender.com/";
 
 const initialState = {
   loggedIn: false,
@@ -12,7 +12,7 @@ const initialState = {
 
 export const loginUser = createAsyncThunk("login/User", async (authData) => {
   try {
-    const response = await fetch("http://127.0.0.1:3001/" + authData.endPoints, authData.method);
+    const response = await fetch(`${url}/` + authData.endPoints, authData.method);
 
     const data = await response.json();
     if (data.status.code === 200) {

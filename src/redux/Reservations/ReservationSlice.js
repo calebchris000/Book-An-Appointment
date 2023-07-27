@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
+const url = "https://cars-app-gvkh.onrender.com/";
 const authToken = localStorage.getItem("authToken");
 const initialState = {
   loading: false,
@@ -16,7 +16,7 @@ const initialState = {
 export const getReservations = createAsyncThunk("Reservations/getReservations", async () => {
   try {
     if (authToken) {
-      const request = await axios.get("http://127.0.0.1:3001/api/reservations", {
+      const request = await axios.get(`${url}api/reservations`, {
         headers: {
           Authorization: localStorage.getItem("authToken"),
         },
@@ -32,7 +32,7 @@ export const getReservations = createAsyncThunk("Reservations/getReservations", 
 export const postReservation = createAsyncThunk("Reservations/postReservations", async (data) => {
   try {
     if (authToken) {
-      const request = await fetch("http://127.0.0.1:3001/api/reservations", data.method);
+      const request = await fetch(`${url}api/reservations`, data.method);
       const response = await request.json();
       return response;
     }
