@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+const url = "https://cars-app-gvkh.onrender.com/";
 const initialState = {
   Products: [],
   isLoading: false,
@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchProductDetails = createAsyncThunk("Products/fetchProductDetails", async () => {
   try {
-    const response = await axios.get("http://127.0.0.1:3001/api/products", {
+    const response = await axios.get(`${url}api/products`, {
       headers: {
         Authorization: localStorage.getItem("authToken"),
       },
@@ -22,7 +22,7 @@ export const fetchProductDetails = createAsyncThunk("Products/fetchProductDetail
 
 export const deleteProduct = createAsyncThunk("Products/deleteProduct", async (id) => {
   try {
-    const response = await fetch("http://127.0.0.1:3001/api/products/" + id, {
+    const response = await fetch(`${url}api/products/` + id, {
       method: "DELETE",
       headers: {
         Authorization: localStorage.getItem("authToken"),
