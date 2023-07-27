@@ -118,17 +118,11 @@ To run the project, execute the following command:
 
 Sure, here's a very concise version:
 
-## Generating Secret Key Base Locally
-
-1. Clone the repository.
-2. Check if your application uses environment variables for the secret key.
-3. Install dependencies required for your application.
-4. Generate the secret key base using the appropriate method for your framework or language.
-5. Update the configuration to use the new secret key.
-6. Test your application locally to ensure it works with the new key.
-7. Keep the secret key secure and don't share it publicly.
-8. Backup the secret key in a safe location.
-9. Document the process in your README for future reference.
+## Generating Your Key
+1. Remove config/master.key and config/credentials.yml.enc if they exist.
+2. Run in the terminal: EDITOR=code rails credentials:edit 
+3. Close the editor that opens.
+4. This command will create a new master.key and credentials.yml.enc if they do not exist.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
